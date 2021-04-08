@@ -25,7 +25,3 @@ echo "</pre>";
 //$content = trim(preg_replace('/\s\s+/', ' ', $content));
 //preg_match_all('/<div class="b-node-list-item__text b-font-def">(.+?)^<\/div>/U', $content, $match_c);
 //print_r($match_c);
-
-//по поводу тех новых строк в статье, ты их можешь удалить просто, перед тем как начинать вытаскивать необходимые елементы с DOM
-//
-//таким образом, как вариант:
