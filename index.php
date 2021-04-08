@@ -23,5 +23,5 @@ echo "</pre>";
 
 //get post content
 //$content = trim(preg_replace('/\s\s+/', ' ', $content));
-//preg_match_all('/<div class="b-node-list-item__text b-font-def">(.+?)^<\/div>/U', $content, $match_c);
-//print_r($match_c);
+preg_match_all('/<div.*class=\"b-node-list-item__text b-font-def\">\n\t\t\t\t\t<p>(.*)<\/p>\n\t\t\t\t<\/div>/U', $content, $match_c);
+print_r($match_c[0]);
