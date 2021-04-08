@@ -21,7 +21,7 @@ preg_match_all('/<span.*class=\"b-node-author__date\">(.*?)<\/span>/U', $content
 print_r($match_d[0]);
 echo "</pre>";
 
-//get post content
+//get post content not finished version
 //$content = trim(preg_replace('/\s\s+/', ' ', $content));
 preg_match_all('/<div.*class=\"b-node-list-item__text b-font-def\">\n\t\t\t\t\t<p>(.*)<\/p>\n\t\t\t\t<\/div>/U', $content, $match_c);
 print_r($match_c[0]);
