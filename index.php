@@ -1,7 +1,5 @@
 <?php
 mb_internal_encoding("UTF-8");
-//$url = 'https://gagadget.com/articles/';
-//$content = file_get_contents($url);
 
 class PostParser
 {
@@ -17,32 +15,28 @@ class PostParser
 
     public function get_title()
     {
-        $url = $this->url;
-        $content = $this->get_content($url);
+        $content = $this->get_content();
         preg_match_all('/<h2.*class=\"b-nodetop__text\"><a href=\"(.*?)\">(.*?)<\/a>(.*?)<\/h2>/U', $content, $match_t);
         return $match_t[2];
     }
 
     public function get_author()
     {
-        $url = $this->url;
-        $content = $this->get_content($url);
+        $content = $this->get_content();
         preg_match_all('/<a.*href=\"(.+)\".*class=\"b-node-author__name\">(.+)<\/a>/U', $content, $match_n);
         return $match_n[2];
     }
 
     public function get_date()
     {
-        $url = $this->url;
-        $content = $this->get_content($url);
+        $content = $this->get_content();
         preg_match_all('/<span.*class=\"b-node-author__date\">(.*?)<\/span>/U', $content, $match_d);
         return $match_d[0];
     }
 
     public function get_post_content()
     {
-        $url = $this->url;
-        $content = $this->get_content($url);
+        $content = $this->get_content();
         preg_match_all('/<div.*class=\"b-node-list-item__text b-font-def\">\n\t\t\t\t\t<p>(.*)<\/p>\n\t\t\t\t<\/div>/U', $content, $match_c);
         return $match_c[0];
     }
@@ -51,15 +45,36 @@ class PostParser
 
 $Parser = new PostParser;
 $Parser->url = "https://gagadget.com/articles/";
-$url_data = $Parser->get_title();
-echo "<pre>";
-print_r($url_data);
-$url_data = $Parser->get_post_content();
-print_r($url_data);
-echo "<pre></pre>";
-$url_data = $Parser->get_author();
-print_r($url_data);
-echo "<pre></pre>";
-$url_data = $Parser->get_date();
-print_r($url_data);
-echo "<pre></pre>";
+
+$title = $Parser->get_title();
+$author = $Parser->get_author();
+$date = $Parser->get_date();
+$post_content = $Parser->get_post_content();
+
+echo '<pre>';
+foreach ($title as $x => $x_value) {
+    echo $x . "=" . $x_value;
+    echo "<br>";
+}
+echo '<pre>';
+echo '</pre>';
+
+foreach ($author as $x => $x_value) {
+    echo $x . "=" . $x_value;
+    echo "<br>";
+}
+echo '<pre>';
+echo '</pre>';
+
+foreach ($date as $x => $x_value) {
+    echo $x . "=" . $x_value;
+    echo "<br>";
+}
+echo '<pre>';
+echo '</pre>';
+
+foreach ($post_content as $x => $x_value) {
+    echo $x . "=" . $x_value;
+    echo "<br>";
+}
+echo '</pre>';
