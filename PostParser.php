@@ -34,11 +34,12 @@ class PostParser
         return $match_d[0];
     }
 
-    public function get_post_content()
-    {
-        $content = $this->get_content();
-        preg_match_all('/<div.*class=\"b-node-list-item__text b-font-def\">\n\t\t\t\t\t<p>(.*)<\/p>\n\t\t\t\t<\/div>/U', $content, $match_c);
-        return $match_c[0];
-    }
+//    public function get_post_content()
+//    {
+//        $content = $this->get_content();
+//        $string = trim(preg_replace('/\s\s+/', ' ', $content));
+//        preg_match_all('/<div.*class=\"b-node-list-item__text b-font-def\">\n\t\t\t\t\t<p>(.*)<\/p>\n\t\t\t\t<\/div>/U', $content, $match_c);
+//        return $match_c[0];
+//    }
 
 }
