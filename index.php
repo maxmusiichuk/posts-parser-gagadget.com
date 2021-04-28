@@ -12,6 +12,7 @@ if ($connect == false) {
     print("Connection stable");
 }
 
+
 $Parser = new PostParser;
 $Parser->url = "https://gagadget.com/articles/";
 
@@ -39,11 +40,20 @@ foreach ($date as $x => $x_value) {
     echo $x . "=" . $x_value;
     echo "<br>";
 }
+
 echo '</pre>';
 
-//echo '<pre>';
-//foreach ($post_content as $x => $x_value) {
-//    echo $x . "=" . $x_value;
-//    echo "<br>";
-//}
-//echo '</pre>';
+for ($i = 0; $i <= 13; $i++) {
+
+$sql = "INSERT INTO dn_posts(title, author, date, content) VALUES  (`title[{$i}]`, `author[{$i}]`, `2020-04-28 22:50:30`,`test content`)";
+
+if (mysqli_query($connect, $sql)) {
+    echo('Record created' . $sql . '<br>');
+} else {
+    echo('Error: ' . $sql . '<br>' . mysqli_error($connect));
+}
+
+}
+
+
+mysqli_close($connect);
