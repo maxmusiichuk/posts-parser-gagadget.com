@@ -45,13 +45,12 @@ echo '</pre>';
 
 for ($i = 0; $i <= 13; $i++) {
 
-$sql = "INSERT INTO dn_posts(title, author, date, content) VALUES  (`title[{$i}]`, `author[{$i}]`, `2020-04-28 22:50:30`,`test content`)";
-
-if (mysqli_query($connect, $sql)) {
-    echo('Record created' . $sql . '<br>');
-} else {
-    echo('Error: ' . $sql . '<br>' . mysqli_error($connect));
-}
+    $sql = Database::recordInBase('dn_posts', $title[$i], $author[$i], '2020-04-30 19:00', 'test content 2');
+    if (mysqli_query($connect, $sql)) {
+        echo('Record created' . $sql . '<br>');
+    } else {
+        echo('Error: ' . $sql . '<br>' . mysqli_error($connect) . '<br>');
+    }
 
 }
 
